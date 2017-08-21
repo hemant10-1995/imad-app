@@ -83,7 +83,7 @@ app.get('/', function (req, res) {
 
 app.get('/:articleName',function(req, res){
     //articleName==article-one
-    //article[articleName]=={}content object for article one
+    //articles[articleName]== {} content object for article one
    res.send(createTemplate(articles[articleName]));
     
 });
