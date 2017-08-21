@@ -6,20 +6,40 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne ={
-    title:'article one hemant kumar',
-    heading:'article one',
-    date:'5 sep 2017',
-    content:` <p>
-                THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding.
-            </p>
-             <p>
-                THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding.
-            </p>
-             <p>
-                THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding.
-            </p>`
+var articles ={
+    'article-one': {
+        title:'article one hemant kumar',
+        heading:'article one',
+        date:'5 sep 2017',
+        content:` <p>
+                    THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding.
+                </p>
+                 <p>
+                    THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding.
+                </p>
+                 <p>
+                    THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding. THis is the my first content.I also learn the html and css few lines of coding.
+                </p>`
     
+},
+    'article-two': {
+         title:'article two hemant kumar',
+        heading:'article one',
+        date:'15 jan 2017',
+        content:` <p>
+                    this is content for second article
+                </p>`
+    
+    },
+    'article-three': {
+         title:'article thee hemant kumar',
+        heading:'article one',
+        date:'25 oct 2017',
+        content:` <p>
+                    this is content for second article
+                </p>`
+    
+    },
 };
 function createTemplate (data) {
     var title=data.title;
@@ -61,11 +81,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req, res){
-   res.send(createTemplate(articleOne));
+app.get('/:articleName',function(req, res){
+    //articleName==article-one
+    //article[articleName]=={}content object for article one
+   res.send(createTemplate(articles[articleName]));
     
 });
-app.get('/article-two',function(req, res){
+/*app.get('/article-two',function(req, res){
     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
     
 });
@@ -89,3 +111,4 @@ var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
+*/
