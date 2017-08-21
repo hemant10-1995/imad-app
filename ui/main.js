@@ -15,6 +15,8 @@ img.onclick= function(){
 };*/
 
 
+
+
 //counter code
 
 var button = document.getElementById('counter');
