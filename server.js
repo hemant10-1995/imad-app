@@ -24,7 +24,7 @@ var articles = {
 },
     'article-two': {
          title:'article two hemant kumar',
-        heading:'article one',
+        heading:'article two',
         date:'15 jan 2017',
         content:` <p>
                     this is content for second article
@@ -33,13 +33,13 @@ var articles = {
     },
     'article-three': {
          title:'article thee hemant kumar',
-        heading:'article one',
+        heading:'article three',
         date:'25 oct 2017',
         content:` <p>
                     this is content for second article
                 </p>`
     
-    },
+    }
 };
 function createTemplate (data) {
     var title=data.title;
