@@ -47,8 +47,7 @@ button.onclick = function() {
   request.send(null);
 };
 //submit name
-var nameInput = document.getElementById('name');
-var name = nameInput.value;
+
 var submit = document.getElementById('submit_btn');
 submit.onclick = function () {
     //Make a request to the server and send the name
@@ -63,20 +62,22 @@ submit.onclick = function () {
           if(request.status==200){
              //Capture the list of name and render it as list 
     var names = request.responseText;
-    name = JSON.parse(names);
+    names = JSON.parse(names);
     var list = '';
     for(var i=0; i<names.length;i++){
         list += '<li>' + names[i] + '</li>';
     }
     var ul = document.getElementById('namelist');
     ul.innerHTML = list;
-          }
+   }
           
-      }
+     }
       // not done yet
       
   };
-  //render the variable in correct span
+   //MAKE the request
+  var nameInput = document.getElementById('name');
+  var name = nameInput.value;
   request.open('GET','http://hk076262.imad.hasura-app.io/submit-name?name=' + name, true);
   request.send(null);
    
