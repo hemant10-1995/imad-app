@@ -86,17 +86,6 @@ app.get('/counter',function(req, res){
     counter = counter +1;
     res.send(counter.toString());
 });
-
-var names = [];
-app.get('/submit-name',function(req, res){//URL:/submit-name?name=xxxx
-    //Get the name from request
-    var name = req.query.name;//TODO
-    
-    names.push(names);
-    //JSON:javascript object notation
-    res.send(JSON.stringify(names));
-    });
-
 app.get('/:articleName',function(req, res){
     //articleName==article-one
     //articles[articleName]== {} content object for article one
