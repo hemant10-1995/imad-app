@@ -19,12 +19,12 @@ img.onclick= function(){
 
 //counter code
 
-var button = document.getElementById('counter');
-var counter=0;
+//var button = document.getElementById('counter');
+//var counter=0;
 
-button.onclick = function() {
+//button.onclick = function() {
   
-  //create a request object
+ /* //create a request object
   var request = new XMLHttpRequest();
   
   //capture the responce and store it on variable
@@ -45,8 +45,10 @@ button.onclick = function() {
   //render the variable in correct span
   request.open('GET','http://hk076262.imad.hasura-app.io/submit-name?name=' + name,true);
   request.send(null);
-};
-//submit name
+};*/
+
+
+//submit usernamename/password to login
 
 var submit = document.getElementById('submit_btn');
 submit.onclick = function () {
@@ -61,14 +63,12 @@ submit.onclick = function () {
           //take some action
           if(request.status==200){
              //Capture the list of name and render it as list 
-    var names = request.responseText;
-    names = JSON.parse(names);
-    var list = '';
-    for(var i=0; i<names.length;i++){
-        list += '<li>' + names[i] + '</li>';
-    }
-    var ul = document.getElementById('namelist');
-    ul.innerHTML = list;
+               console.log('user logged in');
+               alert('Logged in sucessfully ');
+   }else if (request.status === 403){
+       alert('password is incorrect');
+   }else if (request.status ===500){
+       alert('Something went wrong on server');
    }
           
      }
@@ -76,10 +76,13 @@ submit.onclick = function () {
       
   };
    //MAKE the request
-  var nameInput = document.getElementById('name');
+  var username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+  console.log(username);
   var name = nameInput.value;
-  request.open('GET','http://hk076262.imad.hasura-app.io/submit-name?name=' + name, true);
-  request.send(null);
+  request.open('POST','http://hk076262.imad.hasura-app.io/login', true);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.send(JSON.stringify({username:username,password:password}));
    
 };
 
