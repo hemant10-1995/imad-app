@@ -134,7 +134,9 @@ app.post('/login', function(req, res) {
 app.get('/check-login',function (req ,res){
    if (req.session && req.session.auth && req.session.auth.userId){
        res.send('You Logged in:' + req.session.auth.userId.toString());
-   } 
+   } else {
+       res.send('You are not logged in');
+   }
 });
 
 app.get('/logout',function(req, res){
