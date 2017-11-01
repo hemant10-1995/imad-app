@@ -63,7 +63,7 @@ submit.onclick = function () {
           //take some action
           if(request.status===200){
              //Capture the list of name and render it as list 
-               console.log('user logged in');
+               //console.log('user logged in');
                alert('Logged in sucessfully ');
    }else if (request.status === 403){
        alert('username/password is incorrect');
@@ -71,7 +71,7 @@ submit.onclick = function () {
        alert('Something went wrong on server');
    }
           
-     }
+   }
       // not done yet
       
   };
@@ -82,7 +82,7 @@ submit.onclick = function () {
   console.log(password);
   request.open('POST','http://hk076262.imad.hasura-app.io/login', true);
   request.setRequestHeader('Content-Type', 'application/json');
-  request.send(JSON.stringify({username:username,password:password}));
+  request.send(JSON.stringify({username: username, password: password}));
    
 };
 
