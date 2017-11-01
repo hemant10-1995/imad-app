@@ -18,8 +18,8 @@ var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(session({
-    secret:'SomerandomSecretvalue',
-    cookie: { maxage:1000 * 60 * 60 * 24 * 30}
+    secret: 'SomerandomSecretvalue',
+    cookie: { maxAge:1000 * 60 * 60 * 24 * 30}
     
 }));
 
@@ -115,10 +115,9 @@ app.post('/login', function(req, res) {
                 //set the session
                 req.session.auth = {userId: result.rows[0].id};
                 //set cokkies with session id
-                //internall map the session id
+                //internally map the session id
                 
-                
-                res.send('Credentials correct');
+                res.send('Credentials correct !');
                 }else{
                     res.send(403).send('username/password invalid');
                 }   
